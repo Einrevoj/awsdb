@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://database-1.chpzw3uvtrlc.ap-east-1.rds.amazonaws.com:5432/jcano
+    username: postgres
+    password: myfirstproject
+  servlet:
+    multipart:
+      max-file-size: 50MB
