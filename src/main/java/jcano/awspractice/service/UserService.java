@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -93,4 +94,17 @@ public class UserService {
         return modelMapper.map(updatedUser, UserDTO.class);
     }
 
+    public UserDTO loginUser(@NonNull UserRequest activeUser) {
+        // Initialize User
+        UserEntity user = userRepository.findByEmail(activeUser.getEmail());
+
+        // Check if user existing
+        if (user == null) throw new UserAlreadyExist("User doesn't exist");
+
+        // Check if email is existing
+        if (!Objects.equals(user.getPassword(), activeUser.getPassword()))
+            throw new UserAlreadyExist("Invalid password");
+
+        return modelMapper.map(user, UserDTO.class);
+    }
 }

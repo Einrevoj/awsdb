@@ -29,5 +29,12 @@ public class UserController {
     public UserDTO updateUser(@PathVariable String oldEmail, @RequestBody UserRequest userRequest) {
         return userService.updateUser(oldEmail, userRequest);
     }
+
+    @PostMapping("/login")
+    public UserDTO loginUser(@RequestBody @NonNull UserRequest userRequest) {
+        return userService.loginUser(userRequest);
+    }
+
+    @PostMapping("")
 }
 
