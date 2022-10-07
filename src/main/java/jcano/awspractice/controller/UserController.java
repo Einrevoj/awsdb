@@ -35,6 +35,9 @@ public class UserController {
         return userService.loginUser(userRequest);
     }
 
-    @PostMapping("")
+    @PostMapping("/loginByProvider/{email}")
+    public UserDTO loginByProvider(@PathVariable String email) {
+        return userService.loginByProvider(email);
+    }
 }
 

@@ -107,4 +107,31 @@ public class UserService {
 
         return modelMapper.map(user, UserDTO.class);
     }
+
+    public UserDTO loginByProvider(@NonNull String email) {
+        // Initialize User
+        UserEntity user = userRepository.findByEmail(email);
+
+        // Check if email is existing
+        if (user == null) {
+            // Initialize new user
+            UserEntity newUser = UserEntity
+                    .builder()
+                    .userId(UUID.randomUUID())
+                    .email(email)
+                    .password(null)
+                    .totalOrders(0)
+                    .successOrders(0)
+                    .createdDate(dateTimeUtil.currentDate())
+                    .modifiedDate(dateTimeUtil.currentDate())
+                    .build();
+
+            // Save to database
+            userRepository.save(newUser);
+
+            return modelMapper.map(newUser, UserDTO.class);
+        }
+
+        return modelMapper.map(user, UserDTO.class);
+    }
 }
