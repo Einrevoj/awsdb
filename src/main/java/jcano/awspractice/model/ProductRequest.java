@@ -7,7 +7,6 @@ import lombok.Data;
 @Builder
 public class ProductRequest {
 
-
     private String productName;
     private float price;
     private float ratings;

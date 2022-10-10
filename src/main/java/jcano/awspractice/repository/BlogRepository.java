@@ -1,6 +1,6 @@
 package jcano.awspractice.repository;
 
-import jcano.awspractice.entity.ProductEntity;
+import jcano.awspractice.entity.BlogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +10,10 @@ import java.math.BigInteger;
 import java.util.UUID;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, BigInteger> {
+public interface BlogRepository extends JpaRepository <BlogEntity, BigInteger> {
 
-    ProductEntity findByProductId(UUID productId);
-@Transactional
-    void deleteByProductId(UUID productId);
+    BlogEntity findByBlogId(UUID blogId);
+
+    @Transactional
+    void deleteByBlogId(UUID blogId);
 }

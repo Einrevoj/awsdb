@@ -1,6 +1,5 @@
 package jcano.awspractice.entity;
 
-
 import jcano.awspractice.config.SchemaConfiguration;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -12,19 +11,15 @@ import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
-@Entity
 @Builder
+@RequiredArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(schema = SchemaConfiguration.SCHEMA_NAME, name = "PRODUCTS")
 public class ProductEntity {
-
-
-
     @Id
     private UUID productId;
     private String productName;
@@ -49,6 +44,7 @@ public class ProductEntity {
     public int hashCode() {
         return getClass().hashCode();
     }
-
-
 }
+
+
+
