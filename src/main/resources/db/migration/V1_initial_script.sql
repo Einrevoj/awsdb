@@ -31,7 +31,7 @@ CREATE TABLE jcano.POPULAR (
       product_id uuid,
       product_name varchar(150),
       image_link varchar(150),
-      description text,
+      price float,
       created_date TIMESTAMP WITH TIME ZONE,
       modified_date TIMESTAMP WITH TIME ZONE,
       PRIMARY KEY (product_id)

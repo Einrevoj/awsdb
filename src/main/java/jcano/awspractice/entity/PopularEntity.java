@@ -18,14 +18,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(schema = SchemaConfiguration.SCHEMA_NAME, name = "BLOGS")
-public class BlogEntity {
+@Table(schema = SchemaConfiguration.SCHEMA_NAME, name = "POPULAR")
+public class PopularEntity {
     @Id
-    private UUID blogId;
-    private String blogName;
-    private String blogAuthor;
+    private UUID productId;
+    private String productName;
     private String imageLink;
-    private String description;
+    private float price;
     private ZonedDateTime createdDate;
     private ZonedDateTime modifiedDate;
 
@@ -33,13 +32,12 @@ public class BlogEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        BlogEntity that = (BlogEntity) o;
-        return blogId != null && Objects.equals(blogId, that.blogId);
+        PopularEntity that = (PopularEntity) o;
+        return productId != null && Objects.equals(productId, that.productId);
     }
 
     @Override
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }
